@@ -10,8 +10,8 @@ void main() {
   int i, li, numstp, jm, jf[50], iy, imd, iut;
   int nummax = 1000, ind = 1, ivar = 1, piktab = 0, jchoice = 0;
 
-  float xlat, xlon, hour, vbeg, vend, vstp, outf[1000][20], oar[1000][100];
-  float hx = 100., htec_max = 0.0;
+  float xlat, xlon, hour, hx, vbeg, vend, vstp, outf[1000][20], oar[1000][100];
+  float htec_max = 0.0;
 
   for (i=0; i<100; i++) {
     oar[0][i] = -1.0;
