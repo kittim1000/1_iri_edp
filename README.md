@@ -87,7 +87,11 @@ And then the EDP is printed as follows:
 >> Enter 0 to exit or 1 to generate another profile?
 ```
 
-The corresponding Gnuplot is shown above as EDP.png.
+A Gnuplot for the following iputs is shown above as EDP.png:
+```
+time of interest: Mar 3 2021 UT 11:00:00 and Mar 4, 2021 UT 23:00:00 
+location of interest: Lat 37.8N and Lon 75.4W 
+```
 
 # Discussion
 
