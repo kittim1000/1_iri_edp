@@ -3,7 +3,7 @@
 `myiritest.c` is a C-interface for the Ionospheric model found in the International Reference Ionosphere (IRI, http://irimodel.org/). 
 IRI provides a suite of Fortran codes and data sets to model the ionospheric properties such as electron density/temperature, ion composition and temperature for the given time, location and a host of other variables. 
 `myiritest.c` is a C-interface of IRI model, intended as a minimal tool on which extensions may be built up for further applications. 
-It provides the Electron Density Profile (EDP) for the date/time, location and altitude range supplied by the user.
+It provides the Electron Density Profile (EDP) for the Altitude range, date/time and location supplied by the user.
 
 # Method
 
@@ -11,15 +11,14 @@ It provides the Electron Density Profile (EDP) for the date/time, location and a
 We built a simpler rendering of it in `myiritest.c` so that only those variables necessary for standard input and Altitude-EDP output may be retained. 
 Considerations for C-Fortran interface such as Data-types, Passing-by-reference, Array settings etc. were maintained.
 
-Specifically, the following variables are fixed in `myiritest.c`, although they are open for user’s choice in IRI model:
+Specifically, the following variables are fixed in `myiritest.c`, although they are chosen by the users in the IRI model:
 
 ```
 jf[50], ivar = 1, piktab = 0, jchoice = 0, htec_max = 0.0
 // hx value is not relevant for altitude-dependent EDP
 ```
 
-Makefile was written so that a shared object may be built out of IRI Fortran codes. 
-It is then incorporated in the `myiritest.c` compilation.
+Makefile was written so that a shared object may be built out of IRI Fortran codes, which is incorporated in the `myiritest.c` compilation.
 
 # Usage
 
@@ -40,7 +39,7 @@ Place `makefile` and `myiritest.c` in the same directory.
 Compile and run ./iric
 
 ```
-Make
+make
 ./iric
 ```
 
