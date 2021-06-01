@@ -44,7 +44,7 @@ make
 ```
 
 Specify the geographic or geomagnetic latitude and longtitude in degrees in [-90.:90] and [-180.:180.] respectively
-(Negative numbers for Southern or Western hemisphere; Longitude range in [180,:360.] also works).
+(Negative numbers for Southern or Western hemisphere; Longitude range in [0.:360.] also works).
 
 Input year/date after 1958, indicate universal or local time, and hour in [0.:24.].
 
