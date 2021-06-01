@@ -99,4 +99,4 @@ location of interest: Lat 37.8N and Lon 75.4W
 This exercise provides a valuable example of scientific computation involving C-Fortran interface and shared library. 
 Study of IRI codes and data provides an excellent opportunity to learn the ionospheric physics and the methods currently utilized by scientists,
 as well as gain insights on the importance of the higher realm for modern life and applications. 
-This exercise may serve as a basis from which more sophisticated tools can be built for more flexible and extensive utilization of IRI models that meet the need of users.
+This exercise may serve as a basis from which more sophisticated tools can be built for more flexible and extensive utilization of IRI model that meets the need of users.
