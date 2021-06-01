@@ -94,6 +94,8 @@ time of interest: Mar 3 2021 UT 11:00:00 and Mar 4, 2021 UT 23:00:00
 location of interest: Lat 37.8N and Lon 75.4W 
 ```
 
+`myiriplot.c` is an example of C code running `myiritest.c` and incorporating gnuplot for EDP visualization.
+
 ## Discussion
 
 This exercise provides a valuable example of scientific computation involving C-Fortran interface and shared library. 
