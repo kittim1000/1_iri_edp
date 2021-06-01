@@ -2,10 +2,10 @@
 
 `myiritest.c` is a C-interface for the Ionospheric model found in the International Reference Ionosphere (IRI, http://irimodel.org/). 
 IRI provides a suite of Fortran codes and data sets to model the ionospheric properties such as electron density/temperature, ion composition and temperature for the given time, location and a host of other variables. 
-`myiritest.c` is a C-interface of IRI model, intended as a minimal tool on which extensions may be built up for further applications. 
+`myiritest.c` is intended as a minimal interface for the IRI model on which extensions may be built up for further applications. 
 It provides the Electron Density Profile (EDP) for the Altitude range, date/time and location supplied by the user.
 
-# Method
+## Method
 
 `iritest.for` in the IRI model provides a user-interface for which many variables and options are available for garnering ionospheric information. 
 We built a simpler rendering of it in `myiritest.c` so that only those variables necessary for standard input and Altitude-EDP output may be retained. 
@@ -20,7 +20,7 @@ jf[50], ivar = 1, piktab = 0, jchoice = 0, htec_max = 0.0
 
 Makefile was written so that a shared object may be built out of IRI Fortran codes, which is incorporated in the `myiritest.c` compilation.
 
-# Usage
+## Usage
 
 Download and extract the codes and data set:
 
@@ -43,11 +43,11 @@ make
 ./iric
 ```
 
-Specify the geographic or geomagnetic latitude and longtitude in degrees, in [-90.:90] and [0.:360.] respectively, although negative longitude for Western hemisphere works as well.
+Specify the geographic or geomagnetic latitude and longtitude in degrees in [-90.:90] and [-180.:180.] respectively. 
+(Negative numbers for Southern or Western hemisphere; Longitude range in [180,:360.] also works)
+Input year/date after 1958, indicate universal or local time, and hour in [0.:24.].
 
-Input year/date after 1958, indicate universal/local time, and hour in [0.:24.].
-
-Set the desired altitude range between 60 and 2000 km.
+Set the desired altitude range and stepsize between 60 and 2000 km.
 
 ```
 >> jmag(=0/1,geog/geom),lati/deg,long/deg
@@ -87,14 +87,15 @@ And then the EDP is printed as follows:
 >> Enter 0 to exit or 1 to generate another profile?
 ```
 
-A Gnuplot for the following iputs is shown above as EDP.png:
+A Gnuplot for the following iputs is shown above as `EDP.png`:
 ```
 time of interest: Mar 3 2021 UT 11:00:00 and Mar 4, 2021 UT 23:00:00 
 location of interest: Lat 37.8N and Lon 75.4W 
 ```
 
-# Discussion
+## Discussion
 
 This exercise provides a valuable example of scientific computation involving C-Fortran interface and shared library. 
 Study of IRI codes and data provides an excellent opportunity to learn the ionospheric physics and the methods currently utilized by scientists,
-as well as gain insights on the importance of the higher realm for modern life and applications.
+as well as gain insights on the importance of the higher realm for modern life and applications. 
+This exercise can function as a initial stage from which more sophisticated tools may be built to enable more flexible and extensive utilization of IRI models that meet the need of users.
