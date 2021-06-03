@@ -94,7 +94,23 @@ time of interest: Mar 3 2021 UT 11:00:00 and Mar 4, 2021 UT 23:00:00
 location of interest: Lat 37.8N and Lon 75.4W 
 ```
 
-`myiriplot.c` is an example of C code running `myiritest.c` and incorporating gnuplot for EDP visualization.
+### Plotting
+
+`myiriplot.c` is a C code for running `myiritest.c` and incorporating gnuplot for EDP visualization.
+
+It is especially useful for treating many inputs, prepared in an input file of the following format, as in `myiritest.c`:
+
+```
+0 37.8 -75.4 2017 0303 1 11.00 60. 1000. 10. 1
+0 37.8 -75.4 2018 0303 1 11.00 60. 1000. 10. 1
+0 37.8 -75.4 2019 0303 1 11.00 60. 1000. 10. 1
+0 37.8 -75.4 2020 0303 1 11.00 60. 1000. 10. 1
+0 37.8 -75.4 2021 0303 1 11.00 60. 1000. 10. 0
+```
+and is run by
+```
+./a.out input-file-name
+```
 
 ## Discussion
 
