@@ -11,8 +11,8 @@ void main(int argc, char* argv[])
     "set xrange [0:600000]",
     "set xlabel 'Electron Density Ne/cm-3'",
     "set ylabel 'Altitude (km)'",
+    "plot '1' u 2:1 with lines lc 1 lw 3 title '1'\\"
   };
-  char gnuplotcmd2[500] = "plot '1' using 2:1 with lines lc 1 lw 3";
 
   char str[50], nums[2];
   FILE *fp, *fp2;
@@ -27,6 +27,7 @@ void main(int argc, char* argv[])
   j = 1;
 
   while ( fgets (str, 50, fp) != NULL) {
+
     if (i == 0 && strlen(str) > 1) {
       sprintf(nums, "%d", j++);
       fp2 = fopen(nums, "w");
@@ -42,16 +43,12 @@ void main(int argc, char* argv[])
   }
   fclose (fp);
 
-  for (i=2; i < j; i++) {
-    sprintf(str, ", '%d' using 2:1 with lines lc %d lw 3", i, i);
-    strcat(gnuplotcmd2, str);
-  }
-
   printf("Plotting ...\n");
 
   FILE * gnuplotpipe = popen ("gnuplot", "w");
-  for (i=0; i < 5; i++) fprintf(gnuplotpipe, "%s \n", gnuplotcmd[i]);
-  fprintf(gnuplotpipe, "%s \n", gnuplotcmd2);
+  for (i=0; i < 6; i++) fprintf(gnuplotpipe, "%s\n", gnuplotcmd[i]);
+  for (i=2; i < j; i++) fprintf(gnuplotpipe, ", '%d' u 2:1 with lines lc %d lw 3 title '%d'\\\n", i, i, i);
+  fprintf(gnuplotpipe, "\n");
 
   pclose (gnuplotpipe);
 }
